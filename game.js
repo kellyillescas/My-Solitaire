@@ -9,7 +9,7 @@ let foundations = [[], [], [], []];
 
 let selectedCard = null;
 let selectedColumn = null;
-
+let flippedCards = [];
 let drawCount = 3;
 
 let moveHistory = [];

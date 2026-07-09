@@ -11,6 +11,9 @@ function renderGame() {
         showCenterSuit: true
       });
 
+      // Keep lower cards on top of higher cards
+      cardDiv.style.zIndex = cardIndex + 1;
+
       if (card.faceUp) {
         cardDiv.addEventListener("click", () => {
           autoMoveTableauCard(col, cardIndex);
@@ -23,8 +26,17 @@ function renderGame() {
     tableauDiv.appendChild(columnDiv);
   }
 
-  document.getElementById("stock").textContent = stock.length > 0 ? "🂠" : "Empty";
+  const stockDiv = document.getElementById("stock");
 
+  stockDiv.innerHTML = "";
+
+  if (stock.length > 0) {
+    stockDiv.classList.add("card-back");
+  } else {
+    stockDiv.classList.remove("card-back");
+    stockDiv.textContent = "Empty";
+  }
+  
   const wasteDiv = document.getElementById("waste");
   wasteDiv.innerHTML = "";
 
@@ -74,6 +86,10 @@ function renderGame() {
         extraClasses: ["foundation-card"]
       });
 
+      cardDiv.addEventListener("click", () => {
+        autoMoveFoundationCard(i);
+      });
+
       foundationDiv.appendChild(cardDiv);
     } else {
       foundationDiv.textContent = suits[i];
@@ -82,4 +98,6 @@ function renderGame() {
   }
 
   checkWin();
+
+  flippedCards = [];
 }

@@ -61,3 +61,22 @@ function checkWin() {
     }, 100);
   }
 }
+
+function autoMoveFoundationCard(foundationIndex) {
+  const foundation = foundations[foundationIndex];
+  const card = foundation[foundation.length - 1];
+
+  if (!card) {
+    return;
+  }
+
+  for (let i = 0; i < tableau.length; i++) {
+    if (canMoveToTableau(card, tableau[i])) {
+      saveState();
+
+      tableau[i].push(foundation.pop());
+      renderGame();
+      return;
+    }
+  }
+}

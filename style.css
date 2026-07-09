@@ -1,107 +1,232 @@
+/* Page */
+#game-title {
+  margin-bottom: 18px;
+}
+
+.title-suits {
+  font-size: 24px;
+  letter-spacing: 14px;
+  margin-bottom: 4px;
+  text-shadow: 0 2px 4px rgba(0,0,0,.35);
+}
+
+#game-title h1 {
+  margin: 0;
+  font-size: 44px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #f8f7ec;
+  text-shadow: 0 3px 6px rgba(0,0,0,.4);
+}
+
+.subtitle {
+  margin-top: 6px;
+  font-family: "Brush Script MT", "Segoe Script", "Lucida Handwriting", cursive;
+  font-size: 28px;
+  font-style: italic;
+  color: rgba(255,255,255,0.92);
+  text-shadow: 0 2px 4px rgba(0,0,0,.35);
+  letter-spacing: 1px;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background: #0b6b3a;
-    color: white;
-    text-align: center;
-    margin: 0;
-    padding: 20px;
+  font-family: Arial, sans-serif;
+  background: #0b6b3a;
+  color: white;
+  text-align: center;
+  margin: 0;
+  padding: 20px;
 }
 
 h1 {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
+/* Controls */
 #controls {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 button {
-    padding: 10px 18px;
-    margin: 0 8px;
-    font-size: 16px;
-    font-weight: bold;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    background-color: white;
-    color: #0b6b3a;
-    transition: background-color 0.2s, transform 0.1s;
+  padding: 10px 18px;
+  margin: 0 8px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: white;
+  color: #0b6b3a;
 }
 
 button:hover {
-    background-color: #e6e6e6;
+  background-color: #e6e6e6;
 }
 
 button:active {
-    transform: scale(0.97);
+  transform: scale(0.97);
 }
 
+/* Layout */
 #top-row {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 30px;
 }
 
 .spacer {
-    width: 60px;
+  width: 60px;
 }
 
 .pile {
-    width: 80px;
-    height: 110px;
-    border: 2px solid white;
-    border-radius: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: rgba(255,255,255,0.08);
-    font-size: 22px;
-    font-weight: bold;
+  width: 80px;
+  height: 110px;
+  border: 2px solid white;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255,255,255,0.08);
+  font-size: 22px;
+  font-weight: bold;
 }
 
 #tableau {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    align-items: flex-start;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  align-items: flex-start;
 }
 
 .column {
-    width: 80px;
-    min-height: 350px;
-    border: 1px dashed rgba(255,255,255,0.35);
-    border-radius: 8px;
-    padding-top: 2px;
+  width: 80px;
+  min-height: 350px;
+  border: 1px dashed rgba(255,255,255,0.35);
+  border-radius: 8px;
+  padding-top: 2px;
 }
 
+/* Cards */
 .card {
-    width: 80px;
-    height: 110px;
-    background: white;
-    color: black;
-    border: 1px solid black;
-    border-radius: 8px;
-    margin-bottom: -75px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 22px;
-    font-weight: bold;
-    cursor: pointer;
-    user-select: none;
-    box-sizing: border-box;
+  width: 80px;
+  height: 110px;
+  margin-bottom: -75px;
+  box-sizing: border-box;
+  background: linear-gradient(to bottom, #ffffff, #f7f7f7);
+  border: 1px solid #777;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,.25);
+  overflow: hidden;
+  position: relative;
+  user-select: none;
+  cursor: pointer;
+  transition: transform .12s, box-shadow .12s;
+}
+
+.card:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 16px rgba(0,0,0,.35);
 }
 
 .card.red {
-    color: red;
+  color: red;
 }
 
+.card.black {
+  color: black;
+}
+
+/* Card corners */
+.card-corner,
+.card-corner-bottom {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 16px;
+  z-index: 2;
+}
+
+.card-corner {
+  top: 6px;
+  left: 6px;
+  align-items: flex-start;
+}
+
+.card-corner-bottom {
+  bottom: 6px;
+  right: 6px;
+  align-items: center;
+  transform: rotate(180deg);
+}
+
+.card-corner.red,
+.card-corner-bottom.red,
+.card-center.red {
+  color: red;
+}
+
+.card-corner.black,
+.card-corner-bottom.black,
+.card-center.black {
+  color: black;
+}
+
+/* Card center suit */
+.card-center {
+  position: absolute;
+  top: 44%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 36px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Face-down cards */
 .card.face-down {
-    background: navy;
-    color: navy;
+  color: transparent;
 }
 
+.card.face-down:hover {
+  transform: none;
+  box-shadow: 0 2px 5px rgba(0,0,0,.25);
+}
+
+.card-back-pattern {
+  position: absolute;
+  inset: 8px;
+  border-radius: 6px;
+  border: 2px solid rgba(255,255,255,0.85);
+  background:
+    repeating-linear-gradient(
+      45deg,
+      rgba(255,255,255,0.18) 0px,
+      rgba(255,255,255,0.18) 4px,
+      transparent 4px,
+      transparent 8px
+    );
+}
+
+/* Card flip */
+.card.flip {
+  animation: flipCard 0.55s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transform-style: preserve-3d;
+}
+
+@keyframes flipCard {
+  0% {
+    transform: rotateY(90deg);
+  }
+
+  100% {
+    transform: rotateY(0deg);
+  }
+}
+
+/* Waste pile */
 #waste {
   position: relative;
   width: 145px;
@@ -117,52 +242,6 @@ button:active {
   margin-bottom: 0;
 }
 
-.card {
-    position: relative;
-    overflow: hidden;
-}
-
-.card-corner {
-    position: absolute;
-    top: 6px;
-    left: 6px;
-
-    display: flex;
-    flex-direction: column;
-
-    align-items: flex-start;
-
-    font-weight: bold;
-    font-size: 18px;
-    line-height: 16px;
-}
-
-.card-corner.red {
-    color: red;
-}
-
-.card-corner.black {
-    color: black;
-}
-
-.card-center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-
-    transform: translate(-50%, -50%);
-
-    font-size: 44px;
-}
-
-.card-center.red {
-    color: red;
-}
-
-.card-center.black {
-    color: black;
-}
-
 #waste .top-waste-card {
   width: 80px !important;
 }
@@ -171,7 +250,34 @@ button:active {
   width: 65px !important;
 }
 
+/* Foundations */
 .foundation-card {
   margin-bottom: 0;
   cursor: default;
+}
+
+.card-back {
+  position: relative;
+  background: #123c8c;
+  border: 1px solid #08245c;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.card-back::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+
+  border: 2px solid rgba(255,255,255,.85);
+  border-radius: 6px;
+
+  background:
+    repeating-linear-gradient(
+      45deg,
+      rgba(255,255,255,.18) 0px,
+      rgba(255,255,255,.18) 4px,
+      transparent 4px,
+      transparent 8px
+    );
 }

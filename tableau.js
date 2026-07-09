@@ -33,6 +33,7 @@ function autoMoveTableauCard(columnIndex, cardIndex) {
 
       if (newTop && !newTop.faceUp) {
         newTop.faceUp = true;
+        flippedCards.push(newTop);
       }
 
       renderGame();
