@@ -1,0 +1,177 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #0b6b3a;
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    margin-bottom: 10px;
+}
+
+#controls {
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 18px;
+    margin: 0 8px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: white;
+    color: #0b6b3a;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+button:hover {
+    background-color: #e6e6e6;
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+#top-row {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.spacer {
+    width: 60px;
+}
+
+.pile {
+    width: 80px;
+    height: 110px;
+    border: 2px solid white;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255,255,255,0.08);
+    font-size: 22px;
+    font-weight: bold;
+}
+
+#tableau {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.column {
+    width: 80px;
+    min-height: 350px;
+    border: 1px dashed rgba(255,255,255,0.35);
+    border-radius: 8px;
+    padding-top: 2px;
+}
+
+.card {
+    width: 80px;
+    height: 110px;
+    background: white;
+    color: black;
+    border: 1px solid black;
+    border-radius: 8px;
+    margin-bottom: -75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+    box-sizing: border-box;
+}
+
+.card.red {
+    color: red;
+}
+
+.card.face-down {
+    background: navy;
+    color: navy;
+}
+
+#waste {
+  position: relative;
+  width: 145px;
+  height: 110px;
+  overflow: visible;
+  display: block;
+}
+
+#waste .waste-card {
+  position: absolute;
+  top: 0;
+  height: 110px;
+  margin-bottom: 0;
+}
+
+.card {
+    position: relative;
+    overflow: hidden;
+}
+
+.card-corner {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 16px;
+}
+
+.card-corner.red {
+    color: red;
+}
+
+.card-corner.black {
+    color: black;
+}
+
+.card-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    font-size: 44px;
+}
+
+.card-center.red {
+    color: red;
+}
+
+.card-center.black {
+    color: black;
+}
+
+#waste .top-waste-card {
+  width: 80px !important;
+}
+
+#waste .behind-waste-card {
+  width: 65px !important;
+}
+
+.foundation-card {
+  margin-bottom: 0;
+  cursor: default;
+}
